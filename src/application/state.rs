@@ -119,7 +119,7 @@ impl<A: Application + Send> State<A> {
                 self.viewport_version = self.viewport_version.wrapping_add(1);
             }
             baseview::Event::Mouse(baseview::MouseEvent::CursorMoved {
-                position,
+                position, modifiers
             }) => {
                 self.cursor_position.x = position.x as f32;
                 self.cursor_position.y = position.y as f32;

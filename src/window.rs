@@ -772,7 +772,7 @@ async fn run_instance<A, E>(
                     }
                     Err(error) => match error {
                         // This is an unrecoverable error.
-                        iced_graphics::window::SurfaceError::OutOfMemory => {
+                        iced_graphics::window::compositor::SurfaceError::OutOfMemory => {
                             panic!("{:?}", error);
                         }
                         _ => {
@@ -939,7 +939,15 @@ pub fn run_command<Message: 'static + std::fmt::Debug + Send, E: Executor>(
                     height: _height,
                 } => {}
                 window::Action::Move { x: _x, y: _y } => {}
+                window::Action::Drag => todo!(),
+                window::Action::Maximize(_) => todo!(),
+                window::Action::Minimize(_) => todo!(),
+                window::Action::SetMode(_) => todo!(),
+                window::Action::ToggleMaximize => todo!(),
+                window::Action::FetchMode(_) => todo!(),
             },
+            command::Action::System(_) => todo!(),
+            command::Action::Widget(_) => todo!(),
         }
     }
 }
