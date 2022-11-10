@@ -2,17 +2,17 @@
 // (commit 84c28a7) with minor adjustments.
 //
 // Copyright 2019 Héctor Ramón, Iced contributors
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy of
 // this software and associated documentation files (the "Software"), to deal in
 // the Software without restriction, including without limitation the rights to
 // use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
 // the Software, and to permit persons to whom the Software is furnished to do so,
 // subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 // FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -31,13 +31,13 @@ pub type Row<'a, Message> =
     iced_native::widget::Row<'a, Message, crate::Renderer>;
 
 /// A paragraph of text.
-pub type Text = iced_native::widget::Text<crate::Renderer>;
+pub type Text<'a> = iced_native::widget::Text<'a, crate::Renderer>;
 
 pub mod button {
     //! Allow your users to perform actions by pressing a button.
     //!
     //! A [`Button`] has some local [`State`].
-    pub use iced_native::widget::button::{State, Style, StyleSheet};
+    pub use iced_native::widget::button::{State, Appearance, StyleSheet};
 
     /// A widget that produces a message when clicked.
     pub type Button<'a, Message> =
@@ -46,7 +46,7 @@ pub mod button {
 
 pub mod checkbox {
     //! Show toggle controls using checkboxes.
-    pub use iced_native::widget::checkbox::{Style, StyleSheet};
+    pub use iced_native::widget::checkbox::{Appearance, StyleSheet};
 
     /// A box that can be checked.
     pub type Checkbox<'a, Message> =
@@ -55,7 +55,7 @@ pub mod checkbox {
 
 pub mod container {
     //! Decorate content and apply alignment.
-    pub use iced_native::widget::container::{Style, StyleSheet};
+    pub use iced_native::widget::container::{Appearance, StyleSheet};
 
     /// An element decorating some content.
     pub type Container<'a, Message> =
@@ -95,8 +95,8 @@ pub mod pane_grid {
 
 pub mod pick_list {
     //! Display a dropdown list of selectable values.
-    pub use iced_native::overlay::menu::Style as Menu;
-    pub use iced_native::widget::pick_list::{State, Style, StyleSheet};
+    pub use iced_native::overlay::menu::Appearance as Menu;
+    pub use iced_native::widget::pick_list::{State, Appearance, StyleSheet};
 
     /// A widget allowing the selection of a single value from a list of options.
     pub type PickList<'a, T, Message> =
@@ -105,11 +105,11 @@ pub mod pick_list {
 
 pub mod radio {
     //! Create choices using radio buttons.
-    pub use iced_native::widget::radio::{Style, StyleSheet};
+    pub use iced_native::widget::radio::{Appearance, StyleSheet};
 
     /// A circular button representing a choice.
-    pub type Radio<'a, Message> =
-        iced_native::widget::Radio<'a, Message, crate::Renderer>;
+    pub type Radio<Message> =
+        iced_native::widget::Radio<Message, crate::Renderer>;
 }
 
 pub mod scrollable {
@@ -126,7 +126,7 @@ pub mod scrollable {
 
 pub mod toggler {
     //! Show toggle controls using togglers.
-    pub use iced_native::widget::toggler::{Style, StyleSheet};
+    pub use iced_native::widget::toggler::{Appearance, StyleSheet};
 
     /// A toggler widget.
     pub type Toggler<'a, Message> =
@@ -139,7 +139,7 @@ pub mod text_input {
     //! A [`TextInput`] has some local [`State`].
     use crate::Renderer;
 
-    pub use iced_native::widget::text_input::{State, Style, StyleSheet};
+    pub use iced_native::widget::text_input::{State, Appearance, StyleSheet};
 
     /// A field that can be filled with text.
     pub type TextInput<'a, Message> =

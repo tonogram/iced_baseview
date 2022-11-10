@@ -15,7 +15,7 @@ pub fn baseview_to_iced_events(
 ) {
     match event {
         BaseEvent::Mouse(mouse_event) => match mouse_event {
-            baseview::MouseEvent::CursorMoved { position } => {
+            baseview::MouseEvent::CursorMoved{position, modifiers} => {
                 iced_events.push(IcedEvent::Mouse(
                     IcedMouseEvent::CursorMoved {
                         position: Point::new(
@@ -25,21 +25,21 @@ pub fn baseview_to_iced_events(
                     },
                 ));
             }
-            baseview::MouseEvent::ButtonPressed(button) => {
+            baseview::MouseEvent::ButtonPressed{button, modifiers} => {
                 iced_events.push(IcedEvent::Mouse(
                     IcedMouseEvent::ButtonPressed(
                         baseview_mouse_button_to_iced(button),
                     ),
                 ));
             }
-            baseview::MouseEvent::ButtonReleased(button) => {
+            baseview::MouseEvent::ButtonReleased{button, modifiers} => {
                 iced_events.push(IcedEvent::Mouse(
                     IcedMouseEvent::ButtonReleased(
                         baseview_mouse_button_to_iced(button),
                     ),
                 ));
             }
-            baseview::MouseEvent::WheelScrolled(delta) => match delta {
+            baseview::MouseEvent::WheelScrolled{delta, modifiers} => match delta {
                 baseview::ScrollDelta::Lines { x, y } => {
                     iced_events.push(IcedEvent::Mouse(
                         IcedMouseEvent::WheelScrolled {

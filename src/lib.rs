@@ -31,7 +31,7 @@ compile_error!("Can't use both 'wgpu' and 'glow' features");
 #[cfg(feature = "wgpu")]
 type Renderer = iced_wgpu::Renderer;
 #[cfg(feature = "wgpu")]
-type Compositor = iced_wgpu::window::Compositor;
+type Compositor = iced_wgpu::window::Compositor<Theme>;
 #[cfg(feature = "wgpu")]
 pub use iced_wgpu as backend;
 
@@ -40,7 +40,7 @@ pub use iced_wgpu as backend;
 type Renderer = iced_glow::Renderer;
 #[cfg(feature = "glow")]
 #[cfg(not(feature = "wgpu"))]
-type Compositor = iced_glow::window::Compositor;
+type Compositor = iced_glow::window::Compositor<Theme>;
 #[cfg(feature = "glow")]
 #[cfg(not(feature = "wgpu"))]
 pub use iced_glow as backend;

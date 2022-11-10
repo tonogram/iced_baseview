@@ -1,6 +1,6 @@
 [package]
 name = "iced_baseview"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
   "Billy Messenger <BillyDM@protonmail.com>",
   "Robbert van der Helm <mail@robbertvanderhelm.nl>",
@@ -59,13 +59,13 @@ async-std = ["iced_futures/async-std"]
 smol = ["iced_futures/smol"]
 
 [dependencies]
-iced_core = "0.5"
-iced_futures = "0.4"
-iced_graphics = "0.3"
-iced_native = "0.5"
-iced_glow = { version = "0.3", optional = true }
-iced_wgpu = { version = "0.5", optional = true }
+iced_core = "0.6"
+iced_futures = "0.5"
+iced_graphics = "0.4"
+iced_native = "0.6"
+iced_glow = { version = "0.4", optional = true }
+iced_wgpu = { version = "0.6", optional = true }
 keyboard-types = { version = "0.6.1", default-features = false }
-baseview = { git = "https://github.com/RustAudio/baseview.git", rev = "b3712638bacb3fdf2883cb5aa3f6caed0e91ac8c" }
-copypasta = "0.7.1"
+baseview = { git = "https://github.com/RustAudio/baseview.git", rev = "eae4033e7d2cc9c31ccaa2794d5d08eedf2f510c" }
+copypasta = "0.8.1"
 raw-window-handle = "0.4.2"
